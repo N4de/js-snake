@@ -1,0 +1,29 @@
+h1 {
+	text-align: center;
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+
+.box {
+	height: 15px;
+	width: 15px;
+	box-sizing: border-box;
+	border: 1px solid black;
+	display: inline-block;
+
+}
+
+.container {
+	border: 1px solid black;
+	padding: 10px;
+	width: 600px;
+	margin: 0 auto;
+}
+
+.snake-head {
+	background-color: red;
+}
+
+.snake-body {
+	background-color: green;
+}
