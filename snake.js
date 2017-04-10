@@ -1,10 +1,20 @@
 // DOM ELEMENTS
 
+$(document).ready(function(){
+	grid.render();
+	snake.render();
+	snake.changeDirection();
+});
 
 
 
 // GLOBAL VARIABLES
-//var start = setInterval(function() {snake.move();},1000);
+var start = setInterval(function() {snake.move();},1000);
+
+gameOver = function() {
+	$('p').removeClass('hidden');
+	clearInterval(start);
+};
 
 // OBJECTS
 
@@ -21,6 +31,12 @@ var grid = {
 			}
 		}
 	},
+
+	spawnFood: function() {
+		var x = Math.floor((Math.random() * 39));
+		var y = Math.floor((Math.random() * 39));
+		$("#box-" + x + "-" + y).addClass("food");
+	}
 }
 
 var snake = {
@@ -104,17 +120,17 @@ var snake = {
 		console.log("bodyY: " + snake.partY);
 		console.log("headX: " + snake.headX);
 		console.log("headY: " + snake.headY);
+
+		if (snake.headX === 40 || snake.headY === 40 || snake.headX === -1 || snake.headY === -1) {
+			gameOver();
+		}
 	}
 }
 
 
 
 
-$(document).ready(function(){
-	grid.render();
-	snake.render();
-	//snake.changeDirection();
-});
+
 
 
 
